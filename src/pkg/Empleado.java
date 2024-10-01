@@ -1,12 +1,12 @@
 package pkg;
 
 public class Empleado {
-	enum TipoEmpleado{Vendedor, Encargado}
-	float salario = 0;
-	float prima = 0;
-	float horasExtra = 0;
+	public enum TipoEmpleado{Vendedor, Encargado}
+	public float salario = 0;
+	public float prima = 0;
+	public float horasExtra = 0;
 	
-	float calculoNominaBruta(TipoEmpleado tipo, float ventasMes, float horasExtra) {
+	public float calculoNominaBruta(TipoEmpleado tipo, float ventasMes, float horasExtra) {
 		
 		//Tipo de Empleado
 		if(tipo==TipoEmpleado.Vendedor) {
@@ -22,13 +22,19 @@ public class Empleado {
 			prima = 100;
 		}
 		
+		//Horas extras
+		if(horasExtra>0) {
+			return salario + prima + horasExtra*30;
+		}else {
+			return salario + prima;
+		}
 		
-		return salario + prima + horasExtra*30;
+		
 		
 		
 	}
 	
-	 float calculoNominaNeta(float nominaBruta) {
+	 public float calculoNominaNeta(float nominaBruta) {
 	
 		 float retencion = 0;
 		 
